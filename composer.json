@@ -1,0 +1,21 @@
+{
+  "name": "sycho/flarum-uikit",
+  "description": "Frontend utilities for extension developers.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sami 'SychO' Mazouz",
+      "email": "ilyasmazouz@gmail.com",
+      "homepage": "https://sycho9.github.io"
+    }
+  ],
+  "type": "library",
+  "require": {
+    "flarum/core": "^0.1.0-beta.14"
+  },
+  "autoload": {
+    "psr-4": {
+      "SychO\\UiKit\\": "src/"
+    }
+  }
+}
