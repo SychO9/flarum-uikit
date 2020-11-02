@@ -17,6 +17,51 @@ return [
 ];
 ```
 
+**example.js**
+```jsx
+import { uikit } from '@sycho-uikit';
+
+const {
+  ProgressBar,
+  Label,
+  LabelGroup,
+  Input,
+  TagSelector
+} = uikit;
+
+/**
+ * @param mini bool           small sized
+ * @param alternate bool      works with backgrounds using control-bg background color
+ * @param progress number     percentage
+ * @param className string
+ */
+<ProgressBar fancy={true} mini={false} alternate={false} progress={93} />
+
+/**
+ * @param color string
+ */
+<Label color="red">Text</Label>
+
+/**
+ * Container for a group of labels
+ */
+<LabelGroup></LabelGroup>
+
+/**
+ * @param icon string         fontawesome icon
+ * @param className string
+ * ...attrs:    other attributes
+ */
+<Input icon="fas fa-user" className="Input--example"/>
+
+/**
+ * @param selectedTags Tag[]    List of already selected tags
+ * @param excludedTags Tag[]    List of unlisted tags
+ * @param onchange function
+ */
+<TagSelector selectedTags={tags} excludedTags={excludedTags} onchange={(tags) => this.tags = tags} />
+```
+
 ## Installation
 ```ssh
 $ composer require sycho/flarum-uikit

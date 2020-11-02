@@ -223,6 +223,7 @@ var Label = /*#__PURE__*/function (_Component) {
   _proto.view = function view(vnode) {
     var style = {};
     var className = ['UiKit-Label'];
+    if (this.attrs.className) className.push(this.attrs.className);
 
     if (this.attrs.color) {
       style.backgroundColor = "#" + this.attrs.color;
@@ -270,8 +271,10 @@ var LabelGroup = /*#__PURE__*/function (_Component) {
   var _proto = LabelGroup.prototype;
 
   _proto.view = function view(vnode) {
+    var className = ['UiKit-LabelGroup'];
+    if (this.attrs.className) className.push(this.attrs.className);
     return m("span", {
-      className: "UiKit-LabelGroup"
+      className: className.join(' ')
     }, vnode.children);
   };
 
