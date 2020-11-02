@@ -9,7 +9,8 @@
 namespace SychO\UiKit\Extend;
 
 use Flarum\Extend\ExtenderInterface;
-use Flarum\Extend\Frontend;
+use Flarum\Frontend\Assets;
+use Flarum\Frontend\Compiler\Source\SourceCollector;
 use Flarum\Extension\Extension;
 use Illuminate\Contracts\Container\Container;
 
@@ -20,35 +21,29 @@ class Register implements ExtenderInterface
      */
     public static $registered = false;
 
-    /**
-     * @var Frontend
-     */
-    private $forumFrontend;
-
-    /**
-     * @var Frontend
-     */
-    private $adminFrontend;
-
-    public function __construct()
-    {
-        $this->forumFrontend = (new Frontend('forum'))
-            ->js(__DIR__.'/../../js/dist/forum.js')
-            ->css(__DIR__.'/../../less/forum.less');
-
-        $this->adminFrontend = (new Frontend('admin'))
-            ->js(__DIR__.'/../../js/dist/admin.js')
-            ->css(__DIR__.'/../../less/admin.less');
-    }
-
     public function extend(Container $container, Extension $extension = null)
     {
         if (static::$registered) {
             return;
         }
 
-        $this->forumFrontend->extend($container, $extension);
-        $this->adminFrontend->extend($container, $extension);
+        foreach (['forum', 'admin'] as $frontend) {
+            $container->resolving("flarum.assets.$frontend", function (Assets $assets) use ($frontend) {
+                $assets->js(function (SourceCollector $sources) use ($frontend) {
+                    $sources->addString(function () {
+                        return 'var module={}';
+                    });
+                    $sources->addFile(__DIR__."/../../js/dist/$frontend.js");
+                    $sources->addString(function () {
+                        return "flarum.extensions['sycho-uikit']=module.exports";
+                    });
+                });
+
+                $assets->css(function (SourceCollector $sources) use ($frontend) {
+                    $sources->addFile(__DIR__."/../../less/$frontend.less");
+                });
+            });
+        }
 
         static::$registered = true;
     }
