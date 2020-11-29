@@ -10,6 +10,16 @@
     }
   ],
   "type": "library",
+  "support": {
+    "issues": "https://github.com/SychO9/flarum-uikit/issues",
+    "source": "https://github.com/SychO9/flarum-uikit"
+  },
+  "funding": [
+    {
+      "type": "other",
+      "url": "https://www.buymeacoffee.com/sycho"
+    }
+  ],
   "require": {
     "flarum/core": "^0.1.0-beta.14"
   },

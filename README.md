@@ -17,6 +17,13 @@ return [
 ];
 ```
 
+Add it to your webpack config `webpack.config.js`
+```js
+module.exports = require('flarum-webpack-config')({
+  useExtensions: ['sycho-uikit']
+});
+```
+
 **example.js**
 ```jsx
 import { uikit } from '@sycho-uikit';
