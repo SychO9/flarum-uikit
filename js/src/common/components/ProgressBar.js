@@ -4,7 +4,7 @@ export default class ProgressBar extends Component {
   view() {
     let className = ['UiKit-ProgressBar'];
 
-    if (this.attrs.className) className.push(this.attrs.className)
+    if (this.attrs.className) className.push(this.attrs.className);
 
     if (this.attrs.mini) className.push('UiKit-ProgressBar--mini');
 

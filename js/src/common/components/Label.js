@@ -5,7 +5,7 @@ export default class Label extends Component {
     let style = {};
     let className = ['UiKit-Label'];
 
-    if (this.attrs.className) className.push(this.attrs.className)
+    if (this.attrs.className) className.push(this.attrs.className);
 
     if (this.attrs.color) {
       style.backgroundColor = `#${this.attrs.color}`;
