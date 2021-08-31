@@ -17,24 +17,14 @@ return [
 ];
 ```
 
-Add it to your webpack config `webpack.config.js`
-```js
-module.exports = require('flarum-webpack-config')({
-  useExtensions: ['sycho-uikit']
-});
-```
-
 **example.js**
 ```jsx
-import { uikit } from '@sycho-uikit';
+import ProgressBar from 'flarum/uikit/common/ProgressBar';
+import Label from 'flarum/uikit/common/Label';
+import LabelGroup from 'flarum/uikit/common/LabelGroup';
+import Input from 'flarum/uikit/common/Input';
 
-const {
-  ProgressBar,
-  Label,
-  LabelGroup,
-  Input,
-  TagSelector
-} = uikit;
+import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
 
 /**
  * @param mini bool           small sized
@@ -62,21 +52,21 @@ const {
 <Input icon="fas fa-user" className="Input--example"/>
 
 /**
- * @param selectedTags Tag[]    List of already selected tags
- * @param excludedTags Tag[]    List of unlisted tags
- * @param onchange function
+ * @param state GlobalSearchState
+ * @param ignore number
+ * @param onSelect (discussion: Discussion) => void
  */
-<TagSelector selectedTags={tags} excludedTags={excludedTags} onchange={(tags) => this.tags = tags} />
+<DiscussionSearch state={} ignore={485} onSelect={(discussion) => ...} />
 ```
 
 ## Installation
 ```ssh
-$ composer require sycho/flarum-uikit
+$ composer require sycho/flarum-uikit:^0.2.0
 ```
 
 ## Updating
 ```ssh
-$ composer update sycho/flarum-uikit
+$ composer update sycho/flarum-uikit:^0.2.0
 ```
 
 ## Links
