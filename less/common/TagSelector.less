@@ -3,7 +3,7 @@
 
   .FormControl {
     display: flex;
-    border-radius: @border-radius @border-radius 0 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
   .Dropdown-menu {
@@ -18,7 +18,7 @@
     height: auto;
 
     &.FormControl {
-      border-radius: 0 0 @border-radius @border-radius;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
       background-color: @uikit-secondary-control-bg;
     }
     > .UiKit-Label {
