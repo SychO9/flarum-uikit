@@ -1,6 +1,2 @@
-// Expose compat API
-import customCompat from './compat';
-// @ts-ignore
-import { compat } from '@flarum/core/admin';
-
-Object.assign(compat, customCompat);
+// Allow flarum to discover modules
+import './admin';
