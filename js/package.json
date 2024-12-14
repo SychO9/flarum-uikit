@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "prettier": "@flarum/prettier-config",
   "dependencies": {
-    "flarum-webpack-config": "^1.0.0",
-    "flarum-tsconfig": "^1.0.0",
+    "flarum-webpack-config": "^3.0.0",
+    "flarum-tsconfig": "^2.0.0",
     "@flarum/prettier-config": "^1.0.0",
     "sortablejs": "^1.10.2",
     "webpack": "^4.26.0",
