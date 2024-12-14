@@ -1,9 +1,9 @@
 import type Mithril from 'mithril';
 import app from 'flarum/forum/app';
 import highlight from 'flarum/common/helpers/highlight';
-import Search from "flarum/forum/components/Search";
-import type Discussion from "flarum/common/models/Discussion";
-import Button from "flarum/common/components/Button";
+import Search from 'flarum/forum/components/Search';
+import type Discussion from 'flarum/common/models/Discussion';
+import Button from 'flarum/common/components/Button';
 
 export default class DiscussionSearchSource implements Search {
   protected results = new Map<string, unknown[]>();

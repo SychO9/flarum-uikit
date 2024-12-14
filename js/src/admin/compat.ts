@@ -1,3 +1,3 @@
-import compat from "../common/compat";
+import compat from '../common/compat';
 
-export default {...compat};
+export default { ...compat };

@@ -1,6 +1,6 @@
-import DiscussionSearch from "./components/DiscussionSearch";
-import DiscussionSearchSource from "./components/DiscussionSearchSource";
-import compat from "../common/compat";
+import DiscussionSearch from './components/DiscussionSearch';
+import DiscussionSearchSource from './components/DiscussionSearchSource';
+import compat from '../common/compat';
 
 export default {
   ...compat,
