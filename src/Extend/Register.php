@@ -21,7 +21,7 @@ class Register implements ExtenderInterface
      */
     public static $registered = false;
 
-    public function extend(Container $container, Extension $extension = null)
+    public function extend(Container $container, ?Extension $extension = null): void
     {
         if (static::$registered) {
             return;
