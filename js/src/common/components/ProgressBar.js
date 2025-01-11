@@ -1,4 +1,4 @@
-import Component from 'flarum/Component';
+import Component from 'flarum/common/Component';
 
 export default class ProgressBar extends Component {
   view() {

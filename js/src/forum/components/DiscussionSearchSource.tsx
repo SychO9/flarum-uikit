@@ -1,23 +1,23 @@
 import type Mithril from 'mithril';
 import app from 'flarum/forum/app';
 import highlight from 'flarum/common/helpers/highlight';
-import Search from 'flarum/forum/components/Search';
+import { SearchSource } from 'flarum/forum/components/Search';
 import type Discussion from 'flarum/common/models/Discussion';
 import Button from 'flarum/common/components/Button';
 
-export default class DiscussionSearchSource implements Search {
+export default class DiscussionSearchSource implements SearchSource {
   protected results = new Map<string, unknown[]>();
   protected onSelect!: (discussion: Discussion) => void;
-  protected ignore!: number;
+  protected ignore!: string;
 
-  constructor(onSelect: (discussion: Discussion) => void, ignore: number) {
+  constructor(onSelect: (discussion: Discussion) => void, ignore: string) {
     this.results = new Map();
 
     this.onSelect = onSelect;
     this.ignore = ignore;
   }
 
-  search(query: string) {
+  search(query: string): Promise<void> {
     query = query.toLowerCase();
 
     this.results.set(query, []);
@@ -29,16 +29,13 @@ export default class DiscussionSearchSource implements Search {
 
     const id = Number(query);
 
-    if (!Number.isNaN(id) && id !== this.ignore) {
-      return app.store
-        .find('discussions', id)
-        .then((d) => {
-          this.results.set(query, [d]);
-        })
-        .catch(() => []);
+    if (!Number.isNaN(id) && id !== Number(this.ignore)) {
+      return app.store.find('discussions', String(id)).then((d) => {
+        this.results.set(query, [d]);
+      });
     }
 
-    return app.store.find('discussions', params).then((results) => {
+    return app.store.find<Discussion[]>('discussions', params).then((results) => {
       this.results.set(
         query,
         results.filter((d: Discussion) => d.id() !== this.ignore)
@@ -46,8 +43,7 @@ export default class DiscussionSearchSource implements Search {
     });
   }
 
-  // @ts-ignore
-  view(query: string): Mithril.Children {
+  view(query: string): Array<Mithril.Vnode> {
     query = query.toLowerCase();
 
     return ((this.results.get(query) || []) as Discussion[]).map((discussion: Discussion) => {
@@ -60,6 +56,6 @@ export default class DiscussionSearchSource implements Search {
           </Button>
         </li>
       );
-    }) as Array<Mithril.Vnode>;
+    });
   }
 }
