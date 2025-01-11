@@ -19,12 +19,10 @@ return [
 
 **example.js**
 ```jsx
-import ProgressBar from 'flarum/uikit/common/ProgressBar';
-import Label from 'flarum/uikit/common/Label';
-import LabelGroup from 'flarum/uikit/common/LabelGroup';
-import Input from 'flarum/uikit/common/Input';
-
-import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
+import ProgressBar from 'ext:sycho/flarum-uikit/common/ProgressBar';
+import Label from 'ext:sycho/flarum-uikit/common/Label';
+import LabelGroup from 'ext:sycho/flarum-uikit/common/LabelGroup';
+import DiscussionSearch from 'ext:sycho/flarum-uikit/forum/DiscussionSearch';
 
 /**
  * @param mini bool           small sized
@@ -45,13 +43,6 @@ import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
 <LabelGroup></LabelGroup>
 
 /**
- * @param icon string         fontawesome icon
- * @param className string
- * ...attrs:    other attributes
- */
-<Input icon="fas fa-user" className="Input--example"/>
-
-/**
  * @param state GlobalSearchState
  * @param ignore number
  * @param onSelect (discussion: Discussion) => void
@@ -61,12 +52,12 @@ import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
 
 ## Installation
 ```ssh
-$ composer require sycho/flarum-uikit:^0.2.0
+$ composer require sycho/flarum-uikit:^0.3.0
 ```
 
 ## Updating
 ```ssh
-$ composer update sycho/flarum-uikit:^0.2.0
+$ composer update sycho/flarum-uikit:^0.3.0
 ```
 
 ## Links
