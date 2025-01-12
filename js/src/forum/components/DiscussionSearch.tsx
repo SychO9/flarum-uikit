@@ -48,7 +48,6 @@ export default class DiscussionSearch<T extends DiscussionSearchAttrs> extends S
           value={this.searchState.getValue()}
           onchange={(value: string) => this.searchState.setValue(value)}
           clearable={shouldShowClearButton}
-          clearLabel={app.translator.trans('core.forum.header.search_clear_button_accessible_label')}
           loading={this.loadingSources}
           inputAttrs={{
             onfocus: () => (this.hasFocus = true),
